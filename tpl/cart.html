@@ -1,0 +1,53 @@
+<ion-header-bar class="item-icon-left dark-bg">
+  <span class="icon ion-ios-arrow-left header-font-color" ng-click="jump('main')"></span>
+  <h1 class="title header-font-color">我的购物车</h1>
+</ion-header-bar>
+<ion-content class="has-header">
+  <ul>
+    <li class="list">
+      <div class="row item">
+        <div class="col col-40">
+          <img src="img/{{dish.name_zh}}.png" alt=""/>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">{{dish.name_zh}}</div>
+          </div>
+          <div class="row">
+            <div class="col">1.2磅</div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <span class="ion-ios-minus-outline count-change" data-pack="default" data-tags="hide, remove, minimize, -" ng-click="subClick()"></span>
+              <span>{{num}}</span>
+              <span class="ion-ios-plus-outline count-change" data-pack="default" data-tags="add, include, new, invite, +" ng-click="addClick()"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col text-right">{{num*price|currency:'￥'}}</div>
+          </div>
+          <div class="row">
+            <div class="col text-right">×{{num}}</div>
+          </div>
+          <div class="row">
+            <div class="col text-right">
+              <span class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</ion-content>
+<ion-footer-bar>
+  <div class="row">
+    <div class="col col-80">
+      应付金额 <span>{{num*price|currency:'￥'}}</span>
+    </div>
+    <div class="col col-20 text-right">
+      <button class="button button-assertive button-large" ng-click="showConfirmWindow()">去结算</button>
+    </div>
+  </div>
+</ion-footer-bar>

@@ -1,0 +1,47 @@
+<ion-header-bar class="item-icon-left dark-bg">
+  <span class="icon ion-ios-arrow-left header-font-color" ng-click="jump('main')"></span>
+  <h1 class="title header-font-color">我的订单</h1>
+</ion-header-bar>
+<ion-content class="has-header">
+  <ul>
+    <li class="list" ng-repeat="tmp in order">
+      <div class="row item">
+        <div class="col">
+          <span class="button button-small button-dark">已完成</span>
+        </div>
+        <div class="col">
+          <span>{{order.oid}}</span>
+        </div>
+        <div class="col">
+          <span class="text-right">{{tmp.order_time}}</span>
+        </div>
+      </div>
+      <div class="row item">
+        <div class="col col-40">
+          <img src="img/{{tmp.name_zh}}.png" alt=""/>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">{{tmp.name_zh}}</div>
+          </div>
+          <div class="row">
+            <div class="col">1.2磅</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col text-right">￥{{168.00*tmp.count}}</div>
+          </div>
+          <div class="row">
+            <div class="col text-right">×{{tmp.count}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="row item">
+        <div class="col text-right">
+          <span>1</span>件商品,包含运费 <span>￥0.00</span> 应付款: <span>￥{{168.00*tmp.count}}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</ion-content>

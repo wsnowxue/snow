@@ -1,0 +1,21 @@
+<ion-header-bar class="item-icon-left dark-bg">
+    <span class="icon ion-ios-arrow-left header-font-color" ng-click="jump('main')"></span>
+    <h1 class="title header-font-color">会员登录</h1>
+</ion-header-bar>
+<ion-content class="has-header login-page" ng-controller="loginCtrl">
+    <img src="img/657563052577663898.jpg"/>
+    <div class="login-bg img-all centered"></div>
+    <div class="login-box img-all centered">
+        <button class="button-block button button-dark disabled">快速登录</button>
+        <label class="item item-input">
+            <i class="icon ion-android-phone-portrait placeholder-icon"></i>
+            <input type="text" placeholder="请输入手机号" ng-model="uname">
+        </label>
+        <label class="item item-input">
+            <i class="icon ion-locked placeholder-icon"></i>
+            <input type="password" placeholder="请输入密码" ng-model="upwd">
+        </label>
+        <button class="button button-assertive button-block" ng-click="funcSubmit()">点击登录</button>
+    </div>
+
+</ion-content>

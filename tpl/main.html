@@ -1,0 +1,232 @@
+<ion-tabs class="tabs-icon-top">
+  <!----------------主页页面------------------>
+  <ion-tab icon='ion-home' title="主页">
+    <ion-view>
+      <ion-content >
+        <!--轮播-->
+        <div>
+          <ion-slide-box does-continue="true" auto-play="true" active-slide="true">
+            <ion-slide>
+              <div class="box"><img class="img-responsive" src="img/bshsr-wap-banner.jpg"></div>
+            </ion-slide>
+            <ion-slide>
+              <div class="box">
+                <img class="img-responsive" src="img/jzsq-wap-banner.jpg">
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div class="box"><img class="img-responsive" src="img/ss-wap-banner.jpg"></div>
+            </ion-slide>
+            <ion-slide>
+              <div class="box"><img class="img-responsive" src="img/12mj-wap-banner.jpg"></div>
+            </ion-slide>
+          </ion-slide-box>
+        </div>
+        <!--系列---------分类-->
+        <div class="list list-inset">
+          <div class="row">
+            <div class="col text-center">
+              <img src="img/jd.png" alt=""/>
+              <p>经典系列</p>
+            </div>
+            <div class="col text-center">
+              <img src="img/jz.jpg" alt=""/>
+              <p>吉致系列</p>
+            </div>
+            <div class="col text-center">
+              <img src="img/jzb.png" alt=""/>
+              <p>充吉致币</p>
+            </div>
+            <div class="col text-center">
+              <img src="img/jk.png" alt=""/>
+              <p>健康宣言</p>
+            </div>
+          </div>
+        </div>
+        <div  class="list list-inset">
+          <div class="item text-center">
+            <span class="title-main">特惠风暴</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <img src="img/1.png" alt=""/>
+          </div>
+          <div class="col">
+          <img src="img/2.png" alt=""/>
+          </div>
+        </div>
+        <div class="list list-inset">
+          <img src="img/3.png" alt=""/>
+        </div>
+      </ion-content>
+    </ion-view>
+  </ion-tab>
+  <!----------------蛋糕商城页面------------------>
+  <ion-tab icon='ion-bag' title="蛋糕商城">
+    <ion-view>
+      <ion-content>
+        <!--banner--------广告图-->
+        <div>
+          <img src="img/cmnpl-pc-banner1.jpg" alt=""/>
+        </div>
+        <!--所有---------蛋糕-->
+        <div  class="list list-inset">
+          <div class="item text-center">
+            <span class="title-main">口味颠覆之选</span>
+          </div>
+        </div>
+        <div class="list list-inset" ng-repeat="cake in list">
+          <a class="item row" ui-sref="detail({id:cake.cid})">
+            <div class="col col-67">
+              <img ng-src="img/{{cake.name_zh}}.png" alt=""/>
+            </div>
+            <div class="col col-33 col-bottom img-right-text text-center">
+              <p>￥<span>168</span>.00</p>
+              <h3>{{cake.name_zh}} /1.2磅</h3>
+              <button>立即查看</button>
+            </div>
+          </a>
+          <div class="item">
+            <p>{{cake.name_zh}}-{{cake.name_en}}<span>￥168.00</span></p>
+          </div>
+        </div>
+        <!--滚动加载--------更多蛋糕-->
+        <ion-infinite-scroll immediate-check="false" ng-if="hasMore" on-infinite="loadMore()"></ion-infinite-scroll>
+        <p ng-hide="hasMore">没有更多数据可以加载了</p>
+      </ion-content>
+    </ion-view>
+  </ion-tab>
+  <!----------------购物车页面------------------>
+  <ion-tab icon='ion-android-cart' title="购物车">
+    <ion-view>
+      <ion-header-bar class="item-icon-left item-icon-right dark-bg tabs-icon-right ">
+        <span class="icon ion-location header-font-color" title="杭州"></span>
+        <h1 class="title  header-font-color">我的购物车</h1>
+        <span class="icon ion-trash-a header-font-color"></span>
+      </ion-header-bar>
+      <ion-content class="has-header">
+        <div class="cart-box">
+          <div>
+            <span class="ion-android-cart cart-ion"></span>
+          </div>
+          <p>购物车空空如也~</p>
+        </div>
+      </ion-content>
+    </ion-view>
+  </ion-tab>
+  <!----------------个人中心页面------------------>
+  <ion-tab icon='ion-person' title="个人中心">
+    <ion-view>
+      <ion-side-menus>
+        <!--个人中心------------设置里的右侧边 拉框-->
+        <ion-side-menu side="right">
+          <ion-header-bar class="item-icon-left dark-bg">
+            <span class="icon ion-ios-arrow-left header-font-color" ng-click="operateRightMenu(false)"></span>
+            <h1 class="title header-font-color">设置</h1>
+          </ion-header-bar>
+          <ion-content class="has-header">
+            <ul class="list">
+              <li class="item item-divider">消息提醒设置</li>
+              <li class="item item-toggle">
+                活动消息推送
+                <label class="toggle toggle-dark">
+                  <input type="checkbox" checked>
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+              </li>
+              <li class="item item-toggle">
+                订单消息推送
+                <label class="toggle toggle-dark">
+                  <input type="checkbox" checked>
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+              </li>
+              <li class="item item-toggle">
+                公告消息推送
+                <label class="toggle toggle-dark">
+                  <input type="checkbox" checked>
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+              </li>
+              <li class="item item-divider">账户设置</li>
+              <li class="item item-toggle">
+                版本更新提示
+                <label class="toggle toggle-dark">
+                  <input type="checkbox" checked>
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+              </li>
+              <li class="item item-toggle">
+                自动清理缓存
+                <label class="toggle toggle-dark">
+                  <input type="checkbox">
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+              </li>
+              <li class="item item-divider" ng-click="showConfirmWindow()">退出登录</li>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+        <!--个人中心-------------主页面内容-->
+        <ion-side-menu-content>
+          <ion-header-bar class="item-icon-right dark-bg">
+            <h1 class="title  header-font-color">我的账户</h1>
+            <span class="icon ion-android-settings  header-font-color" ng-click="operateRightMenu(true)"></span>
+          </ion-header-bar>
+          <ion-content>
+            <div class="user-img">
+              <img src="img/4.png" alt=""/>
+              <span></span>
+            </div>
+            <div>
+              <ul class="list">
+                <li class="item item-divider item-icon-left item-icon-right">                                        <i class="icon ion-clipboard"></i>
+                  我的订单
+                  <span class="badge" ng-click="jump('myOrder')">全部订单</span>
+                  <i class="icon ion-ios-arrow-right"></i>
+                </li>
+                <li class="item item-icon-right">未处理
+                  <i class="icon ion-ios-arrow-right"></i>
+                </li>
+                <li class="item item-icon-right">已处理
+                  <i class="icon ion-ios-arrow-right"></i>
+                </li>
+                <li class="item item-icon-right">配送中
+                  <i class="icon ion-ios-arrow-right"></i>
+                </li>
+                <li class="item item-icon-right">已完成
+                  <i class="icon ion-ios-arrow-right"></i>
+                </li>
+                <li class="item item-divider item-icon-left">
+                  <i class="icon ion-card"></i>
+                  我的钱包
+                </li>
+                <li class="item item-icon-right">极致币
+                  <i class="icon ion-ios-arrow-right"></i>
+                </li>
+                <li class="item item-icon-right">兑换券
+                  <i class="icon ion-ios-arrow-right"></i>
+                </li>
+                <li class="item item-icon-right">优惠券
+                  <i class="icon ion-ios-arrow-right"></i>
+                </li>
+              </ul>
+            </div>
+          </ion-content>
+        </ion-side-menu-content>
+      </ion-side-menus>
+    </ion-view>
+  </ion-tab>
+</ion-tabs>
+

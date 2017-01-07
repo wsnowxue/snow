@@ -1,0 +1,31 @@
+
+  <ion-header-bar class="item-icon-left item-icon-right dark-bg">
+    <span class="icon ion-ios-arrow-left header-font-color"></span>
+    <h1 class="title header-font-color">{{dish.name_zh}}</h1>
+    <span class="icon ion-android-cart header-font-color" ng-click="jump('cart')"></span>
+  </ion-header-bar>
+  <ion-content class="has-header has-footer">
+    <div>
+      <img src="img/detail/{{dish.name_zh}}-2.jpg" alt=""/>
+      <img src="img/detail/{{dish.name_zh}}-3.jpg" alt=""/>
+      <img src="img/detail/{{dish.name_zh}}.jpg" alt=""/>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="row">
+      <div class="col">
+        <span>￥168.00</span>
+      </div>
+      <div class="col">
+        1.2磅
+      </div>
+      <div class="col">
+      <a class="button button-assertive" ui-sref="cart({id:dish.cid})">加入购物车</a>
+
+      </div>
+      <div class="col">
+      <a class="button button-assertive" ui-sref="cart({id:dish.cid})">立即购买</a>
+
+      </div>
+    </div>
+  </ion-footer-bar>
